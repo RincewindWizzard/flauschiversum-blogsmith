@@ -38,16 +38,17 @@ function transformFile(file, callback) {
       fail(err)
       var content = removeStub(data.toString('utf-8'))
       var doc = yaml.loadFront(data.toString('utf-8'));
-      var dst_folder = path.join('./new-contents/articles/', doc.category ? doc.category : 'ohne-kategorie', slugify(doc.title))
-      var dst = path.join(dst_folder, path.basename(file))
+      if(doc.title) {
+        var dst_folder = path.join('./new-contents/articles/', doc.category ? slugify(doc.category) : 'ohne-kategorie', slugify(doc.title))
+        var dst = path.join(dst_folder, path.basename(file))
 
-      async.series([
-        (cb) => mkdirp(dst_folder, cb),
-        (cb) => fs.writeFile(dst, content, cb),
-        (cb) => /index\.md$/.exec(file) ? copyResources(path.dirname(file), dst_folder, cb) : cb(),
-        function(cb) { console.log(dst); cb()},
-      ], callback)
-      
+        async.series([
+          (cb) => mkdirp(dst_folder, cb),
+          (cb) => fs.writeFile(dst, content, cb),
+          (cb) => /index\.md$/.exec(file) ? copyResources(path.dirname(file), dst_folder, cb) : cb(),
+          function(cb) { console.log(dst); cb()},
+        ], callback)
+      }
     })
   }
 }
