@@ -1,0 +1,28 @@
+{
+  "name": "flauschiversum-blogsmith",
+  "version": "1.0.0",
+  "description": "Compile a simple blog.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RincewindWizzard/flauschiversum-blogsmith.git"
+  },
+  "author": "RincewindWizzard <github@magierdinge.de> (magierdinge.de)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RincewindWizzard/flauschiversum-blogsmith/issues"
+  },
+  "homepage": "https://github.com/RincewindWizzard/flauschiversum-blogsmith#readme",
+  "dependencies": {
+    "async": "^1.5.0",
+    "file": "^0.2.2",
+    "mkdirp": "^0.5.1",
+    "node-dir": "^0.1.11",
+    "slugify3": "0.0.4",
+    "yaml-front-matter": "^3.2.3"
+  }
+}
