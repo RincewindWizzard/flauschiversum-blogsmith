@@ -1,0 +1,3 @@
+[submodule "flauschiversum-content"]
+	path = contents
+	url = git@github.com:RincewindWizzard/flauschiversum-content.git
